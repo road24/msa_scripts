@@ -1,0 +1,28 @@
+#Pump it up Pro2 r14 Miasma Script by rFx
+
+#Anti-Loader Modification. This was from SecureBinary.cpp; @0x8383BC0, it does mprotect and a bunch of #dlopen calls.It appears to try and protect its own memory pages but it doesn't work unless you're using a #real specific setup. Anyway, this nukes that; should make PRO2 not fuck up on systems with this disabled.
+anti_loader | NOP | 0x33BD00 | 0x05
+
+#Nuke DS Check 1 (basically pretends to read the serial page out to make sure dongle is still there)
+ds_check_1 | NOP | 0x1CE014 | 0x05
+
+#Fake Serial
+fake_serial | STR | 0x49B208 | 'PPRO2-02001337'
+
+
+#Nuke update checks. This checks a bunch of directories for patches - we don't need this anymore.
+#This also wipes access to the ppl files for reasons of confidentiality.
+upd_mod_1 | NOP | 0x415A64 | 0x19C
+upd_mod_2 | NOP | 0x415CCE | 0x88
+
+#Modify the game data directory to a relative path.
+path_mod1 | STR | 0x4DFE1F | './game'
+#Modify the revision file path to a relative path.
+path_mod2 | STR | 0x4CCA46 | './Save/patch/revision'
+path_mod2_1 | WR | 0x1F2B6E | 0x46
+#Modify the machine select file to a relative path.
+path_mod3 | STR | 0x495664 | './FX'
+#Modify the CrashLogs Directory to a relative path.
+path_mod4 | STR | 0x4B4743 | './CrashLogs'
+#Modify the product file to a relative path.
+path_mod5 | STR | 0x4CCA6E | './product'
