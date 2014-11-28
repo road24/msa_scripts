@@ -1,0 +1,29 @@
+#Exceed 2 Modifications
+
+#Removal of Dongle Checks
+lock_check1 | NOP | 0x5D75 | 0x5A
+lock_check2 | WR | 0x2005C | 0x75
+
+#Deadlock Fix
+deadlock_patch_exceed2 | NOP | 0x2D2E9 | 0x5
+
+#Patch for Non Nvidia Cards
+nvidia_patch | WR | 0x2E60B | 0x280A
+
+#Change Save Directory
+save_patch1 | STR | 0x358D3 | '/SAVE/EX2/PIUEXCEED.INI'
+
+#Fix sound thread from committing suicide
+sound_fix | WR | 0x2CCE0 | 0xC3
+
+#Change Script dir
+script_patch1 | STR | 0x35AAF | './LUA/BATTLEMODE.LUA'
+script_patch2 | STR | 0x35AC6 | './LUA/NORMALMODE.LUA'
+script_patch3 | STR | 0x36240 | 'LUA_PATH=?;?.lua;./LUA/?.lua;./LUA/?'
+script_patch4 | STR | 0x36269 | './LUA/%s.LUA'
+
+#Change Window Title for Fun xD
+window_title | STR | 0x31ADA | 'HACK IT UP - THE EXCEED 2'
+
+#Random Segfault Fix
+rseg_fix | NOP | 0x5CCE | 0x2

@@ -1,0 +1,31 @@
+hdd_fix1 | WR | 0xDF5B | 0xC3
+hdd_fix2 | WR | 0x1416F | 0xC3
+hdd_fix3 | WR | 0x8B068 | 0xC3
+hdd_fix4 | WR | 0x95450 | 0xC3
+
+
+#Duo
+duo_patch | NOP | 0x29B33 | 0x2
+
+#Wipe Table
+#wipe_dogresp | NULL | 0x111D60 | 0x1AA0
+dongle_chk1 | NOP | 0x135B9 | 0x2
+#Prevent XOR with file key over data
+encrypt_patch1 | NOP | 0x22C0A | 0x2
+settings_check | NOP | 0x25189 | 0x6
+
+dogcvrt_patch | WR | 0xA7BF2 | 0xC990C031
+dogcvrt_patch2 | WR | 0xA84A0 | 0xC990C031
+
+win_title | STR | 0xE8AF0 | 'HACK IT UP: FIESTAEX'
+save_mod1 | STR | 0xE9358 | '/SAVE/FEX/RANK.DAT'
+save_mod2 | STR | 0xE96A4 | '/SAVE/FEX/PIUFESTAEX.INI'
+
+all_rush1 | NOP | 0x428DE | 0x6
+#e130 - e13b (NOP)
+
+#14344 - 1434f (NOP)
+#8b23d - 8b248 (NOP)
+#95625 - 95630 (NOP)
+
+#0xEFE80 - Version String

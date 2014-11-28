@@ -1,0 +1,43 @@
+#Fiesta 2 1.20 MIASMA Modification Script File
+
+
+#HDD Checks
+hdd_check1 | WR | 0x1D210 | 0xC3
+hdd_check2 | WR | 0x1CC80 | 0xC3
+hdd_check3_1 | WR | 0x782D4 | 0x80C02DF
+hdd_check3_2 | NOP | 0x782D8 | 0x5
+hdd_check4_1 | WR | 0x79E49 | 0x80C1E54
+hdd_check4_2 | NOP | 0x79E4D | 0x5
+
+#Dongle / Lock Checks
+lock_check1 | WR | 0x789FD | 0x85
+lock_check2 | WR | 0x7DB37 | 0x85
+settings_lock_check | WR | 0x7ADD3 | 0x84
+skip_HASP_getsessioninfo | WR | 0x1DD10 | 0xC3
+getdongleinfo_fix1 | NOP | 0x4C965 | 0x5
+getdongleinfo_fix2 | NOP | 0x4C989 | 0x5
+defeat_dongle_login | WR | 0x4C8B6 | 0x74
+defeat_dongle_getinfo | WR | 0x4C8E7 | 0x75
+defeat_HASP_ENCRYPT_result | WR | 0x1DC2B | 0x85
+defeat_encrypt_prep | WR | 0x1DC9F | 0x85
+
+#File Encryption Modifications
+zlib_encrypt_defeat1 | NOP | 0x1C4D3 | 0x2
+zlib_encrypt_defeat2 | NOP | 0x1C45E | 0x3
+zlib_encrypt_defeat3 | WR | 0x1C3FF | 0x85
+uncompressed_xor_defeat | NOP | 0x1C1A2 | 0x3
+uncompressed_xor_defeat2 | NOP | 0x1C2DA | 0x3
+
+#Feature Additions
+latin_america_songs_uncensor | WR | 0x148E7 | 0x76
+
+#Cosmetic
+window_title | STR | 0x15DADA | 'HACK IT UP: FIESTA2'
+
+#Save Directory Modification
+#NOTE: AM Uses the 'T' in 'DAT' to replace 'T' in TYPE for SPR Files.
+#Therefore, SAVE MOD either has to be the same size as original 
+#or you need to redirect to another 'T'.
+save_mod1 | STR | 0x1539A0 | '/SAVE/FS2/RANK.DAT'
+save_mod2 | STR | 0x15BFBC | '/SAVE/FS2/PIUFESTA2.INI'
+save_mod3 | STR | 0x15DBE8 | '/SAVE/FS2/updlog.txt'

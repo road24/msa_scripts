@@ -1,0 +1,239 @@
+hdd_check1 | WR | 0x2E180 | 0xC3
+hdd_check2 | WR | 0x44E90 | 0xC3
+
+#Not needed if usb fix
+#ticket_fix | NOP | 0xC43A | 0x5
+
+lock_check1 | WR | 0xD2C8 | 0x84
+nvidia_fix | WR | 0x477D2 | 0x280A
+iosleep_fix | WR | 0x1FD17 | 0x75
+
+#Deadlock Fix
+deadlock_patch_nx108 | NOP | 0x1EE9E | 0x5
+
+#Cosmetic Mods
+#--Change window title.
+window_title | STR | 0xB283A | 'HACK IT UP: NX'
+
+#--Change SCRIPT directory to local dir.
+script_mod_1 | STR | 0xB22C1 | './LUA/SFX_GLOBAL.LUA'
+script_mod_2 | STR | 0xB2511 | './LUA/?.lua;./LUA/?;./LUA/UI/?.lua;./LUA/UI/?'
+script_mod_3 | STR | 0xB2611 | './LUA/?.lua;./LUA/?'
+script_mod_4 | STR | 0xB5000 | './LUA/KEY.LUA'
+script_mod_5 | STR | 0xC7C9E | './LUA/UI/SFX_DANCEGRADE.LUA'
+script_mod_6 | STR | 0xC7CBC | './LUA/UI/DANCEGRADE.LUA'
+script_mod_7 | STR | 0xC7F13 | './LUA/UI/SFX_NEXTSTAGE.LUA'
+script_mod_8 | STR | 0xC8024 | './LUA/UI/SFX_NAMEINPUT.LUA'
+script_mod_9 | STR | 0xC8671 | './LUA/UI/SFX_SELECT.LUA'
+script_mod_10 | STR | 0xCC089 | './LUA/SETUP_KR.LUA'
+script_mod_11 | STR | 0xCC0AD | './LUA/SETUP_EN.LUA'
+script_mod_12 | STR | 0xCC9C4 | './LUA/UI/SFX_TITLE.LUA'
+script_mod_13 | STR | 0xCCAE4 | './LUA/UI/WORLDGRADE.LUA'
+
+#--Save directory Mods.
+save_mod_1 | STR | 0xB5010 | '/SAVE/NX/PIUNX.INI'
+save_mod_2 | STR | 0xB2BB3 | '/SAVE/NX/MRANK.DAT'
+save_mod_3 | STR | 0xB4C35 | '/SAVE/NX/RANK.DAT'
+
+
+#--Reallocate some stuff to make the songlist bigger.
+song_exp1 | WR | 0x22657 | 0x813C1B3
+song_exp2 | WR | 0x17CD8 | 0x813C1B3
+song_exp3 | WR | 0x16F53 | 0x813C1AF
+song_exp4 | WR | 0xF41AF | 0x80FCC30
+song_exp5 | STR | 0xF41B3 | 'HEST'
+#--Change the starting songlist entry to - 0x48
+#0x813C200 -> 0x813C1B8
+song_exp6 | WR | 0x19DF2 | 0x813C1B8
+song_exp7 | WR | 0x1A461 | 0x813C1B8
+song_exp8 | WR | 0x19E07 | 0x813C1B8
+
+#0x813C204 -> 0x813C1BC
+song_exp9 | WR | 0x19C97 | 0x813C1BC
+song_exp10 | WR | 0x19CD3 | 0x813C1BC
+song_exp11 | WR | 0x19D97 | 0x813C1BC
+song_exp12 | WR | 0x19DD2 | 0x813C1BC
+song_exp13 | WR | 0x19E6A | 0x813C1BC
+song_exp14 | WR | 0x19E75 | 0x813C1BC
+song_exp15 | WR | 0x19EBF | 0x813C1BC
+song_exp16 | WR | 0x19EE1 | 0x813C1BC
+song_exp17 | WR | 0x19F54 | 0x813C1BC
+song_exp18 | WR | 0x1A046 | 0x813C1BC
+song_exp19 | WR | 0x1A059 | 0x813C1BC
+song_exp20 | WR | 0x1A0C6 | 0x813C1BC
+song_exp21 | WR | 0x1A0D9 | 0x813C1BC
+song_exp22 | WR | 0x1A253 | 0x813C1BC
+song_exp23 | WR | 0x1A285 | 0x813C1BC
+song_exp24 | WR | 0x1A2C2 | 0x813C1BC
+song_exp25 | WR | 0x1A2FA | 0x813C1BC
+song_exp26 | WR | 0x1A3A7 | 0x813C1BC
+song_exp27 | WR | 0x1A3E9 | 0x813C1BC
+song_exp28 | WR | 0x1A426 | 0x813C1BC
+song_exp29 | WR | 0x1A467 | 0x813C1BC
+song_exp30 | WR | 0x1A5A7 | 0x813C1BC
+song_exp31 | WR | 0x3FB7C | 0x813C1BC
+song_exp32 | WR | 0x3FF0B | 0x813C1BC
+#0x813C208 -> 0x813C1C0
+song_exp33 | WR | 0x3FC94 | 0x813C1C0
+#0x813C20C -> 0x813C1C4
+song_exp34 | WR | 0x3FCA5 | 0x813C1C4
+#0x813C210 -> 0x813C1C8
+song_exp35 | WR | 0x4110B | 0x813C1C8
+song_exp36 | WR | 0x410D7 | 0x813C1C8
+song_exp37 | WR | 0x40BC4 | 0x813C1C8
+song_exp38 | WR | 0x40B94 | 0x813C1C8
+song_exp39 | WR | 0x409E8 | 0x813C1C8
+song_exp40 | WR | 0x408FF | 0x813C1C8
+song_exp41 | WR | 0x3FC8E | 0x813C1C8
+song_exp42 | WR | 0x2D96D | 0x813C1C8
+#0x813C214 -> 0x813C1CC
+song_exp43 | WR | 0x2D990 | 0x813C1CC
+song_exp44 | WR | 0x3FCB0 | 0x813C1CC
+song_exp45 | WR | 0x40B86 | 0x813C1CC
+song_exp46 | WR | 0x40BB6 | 0x813C1CC
+song_exp47 | WR | 0x40D7E | 0x813C1CC
+#0x813C21C -> 0x813C1D4
+song_exp47 | WR | 0x19EA4 | 0x813C1D4
+song_exp48 | WR | 0x1A270 | 0x813C1D4
+song_exp49 | WR | 0x1A382 | 0x813C1D4
+song_exp50 | WR | 0x1A5D4 | 0x813C1D4
+#0x813C220 -> 0x813C1D8
+song_exp51 | WR | 0x19EB1 | 0x813C1D8
+#0x813C230 -> 0x813C1E8
+song_exp52 | WR | 0x19F39 | 0x813C1E8
+song_exp53 | WR | 0x1A027 | 0x813C1E8
+song_exp54 | WR | 0x1A3B0 | 0x813C1E8
+#0x813C234 -> 0x813C1EC
+song_exp55 | WR | 0x19BB3 | 0x813C1EC
+song_exp56 | WR | 0x19C4B | 0x813C1EC
+song_exp57 | WR | 0x19C7B | 0x813C1EC
+song_exp58 | WR | 0x2D95B | 0x813C1EC
+#0x813C235 -> 0x813C1ED
+song_exp59 | WR | 0x40D8C | 0x813C1ED
+song_exp60 | WR | 0x40EFA | 0x813C1ED
+song_exp61 | WR | 0x410C5 | 0x813C1ED
+song_exp62 | WR | 0x40D56 | 0x813C1ED
+#0x813C237 -> 0x813C1EF
+song_exp63 | WR | 0x1A455 | 0x813C1EF
+#0x813C238 -> 0x813C1F0
+song_exp64 | WR | 0x1A05E | 0x813C1F0
+song_exp65 | WR | 0x1A0DE | 0x813C1F0
+song_exp66 | WR | 0x1A2F1 | 0x813C1F0
+song_exp67 | WR | 0x1A365 | 0x813C1F0
+song_exp68 | WR | 0x1A3C2 | 0x813C1F0
+#0x813C23C -> 0x813C1F4
+song_exp69 | WR | 0x19FF9 | 0x813C1F4
+song_exp70 | WR | 0x19F9B | 0x813C1F4
+song_exp71 | WR | 0x19F18 | 0x813C1F4
+#0x813C23D -> 0x813C1F5
+song_exp72 | WR | 0x1A002 | 0x813C1F5
+song_exp73 | WR | 0x19FAC | 0x813C1F5
+song_exp74 | WR | 0x19F20 | 0x813C1F5
+#0x813C23E -> 0x813C1F6
+song_exp75 | WR | 0x1A00B | 0x813C1F6
+song_exp76 | WR | 0x19FBD | 0x813C1F6
+song_exp77 | WR | 0x19F26 | 0x813C1F6
+#0x813C23F -> 0x813C1F7
+song_exp78 | WR | 0x1A014 | 0x813C1F7
+song_exp79 | WR | 0x19FCE | 0x813C1F7
+song_exp80 | WR | 0x19F2C | 0x813C1F7
+#0x813C240 -> 0x813C1F8
+song_exp81 | WR | 0x1A01D | 0x813C1F8
+song_exp82 | WR | 0x19FE7 | 0x813C1F8
+song_exp83 | WR | 0x19F32 | 0x813C1F8
+#0x813C241 -> 0x813C1F9
+song_exp84 | WR | 0x19C72 | 0x813C1F9
+song_exp85 | WR | 0x19C42 | 0x813C1F9
+
+
+#Set song count value back to 0xC2 like it was in 1.05
+songlimit_fix1 | WR | 0x19BE1 | 0xC2
+songlimit_fix2 | WR | 0x19C16 | 0xC2
+songlimit_fix3 | WR | 0x19C28 | 0xC2
+songlimit_fix4 | WR | 0x19DDE | 0xC2
+songlimit_fix5 | WR | 0x19EFA | 0xC2
+songlimit_fix6 | WR | 0x19F7A | 0xC2
+songlimit_fix7 | WR | 0x1A442 | 0xC2
+songlimit_fix8 | WR | 0x1A5BA | 0xC2
+songlimit_fix9 | WR | 0x19C58 | 0xC2
+songlimit_fix10 | WR | 0x19DA9 | 0xC2 
+songlimit_fix11 | WR | 0x19E19 | 0xC2
+
+
+#--Add Valenti Back
+valenti_mod_1 | NULL | 0xF41AE | 0x52
+#0xF41B8 is where we start
+valenti_mod_2 | WR | 0xF41B8 | 0x00
+valenti_mod_3 | WR | 0xF41BC | 0xA10
+#Artist and Song Title Strings
+valenti_mod_4 | WR | 0xF41C0 | 0x80FEC03
+valenti_mod_5 | WR | 0xF41C4 | 0x80FEC03
+valenti_mod_6 | WR | 0xF41C8 | 0x80FEC07
+valenti_mod_7 | WR | 0xF41CC | 0x80FEC07
+valenti_mod_8 | STR | 0xB6C07 | 'Valenti'
+valenti_mod_9 | STR | 0xB6C03 | 'BoA'
+#BPM String
+valenti_mod_10 | WR | 0xF41D0 | 0x80FD3AC
+valenti_mod_11 | WR | 0xF41D4 | 0x1
+valenti_mod_12 | WR | 0xF41D8 | 0x2
+valenti_mod_13 | WR | 0xF41DC | 0x4
+valenti_mod_14 | WR | 0xF41E0 | 0xB
+valenti_mod_15 | WR | 0xF41E4 | 0x4
+valenti_mod_16 | WR | 0xF41E8 | 0xD 
+valenti_mod_17 | WR | 0xF41EC | 0x010101
+valenti_mod_18 | WR | 0xF41F0 | 0xFFFFFFFF
+valenti_mod_19 | WR | 0xF41F4 | 0x01010101
+valenti_mod_20 | WR | 0xF41F8 | 0x01
+valenti_mod_21 | WR | 0xF41FC | 0x65
+valenti_mod_22 | WR | 0xF4200 | 0xC1
+#--Add Fighting Spirit Back
+fspr_1 | STR | 0xB6C85 | 'Fighting Spirit'
+fspr_2 | WR | 0xF7800 | 0x3C
+fspr_3 | WR | 0xF7804 | 0x208
+fspr_4 | WR | 0xF7808 | 0x80FD861
+fspr_5 | WR | 0xF780C | 0x80FD861
+fspr_6 | WR | 0xF7810 | 0x80FEC85
+fspr_7 | WR | 0xF7814 | 0x80FEC85
+fspr_8 | WR | 0xF7818 | 0x80FD866
+fspr_9 | WR | 0xF781C | 0x1
+fspr_10 | WR | 0xF7820 | 0x3
+fspr_11 | WR | 0xF7824 | 0xFFFFFFFF
+fspr_12 | WR | 0xF7828 | 0xFFFFFFFF
+fspr_13 | WR | 0xF782C | 0x5
+fspr_14 | WR | 0xF7830 | 0xFFFFFFFF
+fspr_15 | WR | 0xF7834 | 0x010101
+fspr_16 | WR | 0xF7838 | 0xFFFFFFFF
+fspr_17 | WR | 0xF783C | 0x01010101
+fspr_18 | WR | 0xF7840 | 0x01
+fspr_19 | WR | 0xF7844 | 0x5C
+#--D208 Replacing DD01
+fspr_20 | NULL | 0xF74F0 | 0x40
+fspr_21 | WR | 0xF74F0 | 0x80FD861
+fspr_22 | WR | 0xF74F4 | 0x80FD861
+fspr_23 | WR | 0xF74F8 | 0x80FEC85
+fspr_24 | WR | 0xF74FC | 0x80FEC85
+fspr_25 | WR | 0xF7500 | 0x80FD866
+fspr_26 | WR | 0xF7504 | 0x6
+fspr_27 | WR | 0xF7508 | 0xFFFFFFFF
+fspr_28 | WR | 0xF750C | 0xFFFFFFFF
+fspr_29 | WR | 0xF7510 | 0xD
+fspr_30 | WR | 0xF7514 | 0xFFFFFFFF
+fspr_31 | WR | 0xF7518 | 0xF
+fspr_32 | WR | 0xF751C | 0x0101
+fspr_33 | WR | 0xF7520 | 0xFFFFFFFF
+fspr_34 | WR | 0xF7524 | 0x01010101
+fspr_35 | WR | 0xF7528 | 0x1
+fspr_36 | WR | 0xF752C | 0x5C
+
+
+#Adjust Alias Table
+alias_patch1 | WR | 0xF7958 | 0xA10
+alias_patch2 | WR | 0xF7C70 | 0xA10
+alias_patch3 | WR | 0xF8028 | 0x208
+alias_patch4 | WR | 0xF802C | 0xD208
+alias_patch5 | WR | 0xF8248 | 0xA10
+alias_patch6 | WR | 0xF824C | 0xDDDA10C
+alias_patch7 | WR | 0xF8148 | 0xA10
+alias_patch8 | WR | 0xF814C | 0xDDDA10B
+alias_patch9 | WR | 0xF80C8 | 0xA10
+alias_patch10 | WR | 0xF80CC | 0xDDDA10A

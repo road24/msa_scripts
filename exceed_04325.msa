@@ -1,0 +1,32 @@
+#Pump it Up - THE EXCEED 04325 Modifications
+#NVIDIA FIX
+nvidia_fix1 | WR | 0x2ABFA | 0x280A
+
+
+#Skip Lock Check
+lock_fix1 | WR | 0x46B0 | 0xC3
+lock_fix2 | WR | 0x1F873 | 0x85
+
+#Wipe Lock Mods
+wipe_ENC2 | NOP | 0x28901 | 0x6
+wipe_RESPACK | NOP | 0x28C4A | 0x3
+wipe_mov2 | NOP | 0xADC5 | 0x3
+wipe_mov21 | NOP | 0xADE3 | 0x6
+
+dmix_hack | STR | 0x57C5C | 'dmix'
+
+prevent_soundnuke2 | WR | 0x276E0 | 0xC3
+
+#Deadlock Fix
+deadlock_patch | NOP | 0x27D7E | 0x5
+
+#Cosmetic
+win_title | STR | 0x50572 | 'HACK IT UP - THE EXCEED'
+
+#TESTING (DO NOT USE)
+#block_wave | NOP | 0x281FF | 0x5
+#eeprom_patch_fix | NOP | 0x21AC7 | 0xBA
+
+
+
+

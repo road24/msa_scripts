@@ -1,0 +1,65 @@
+#Pump it Up NXA 1.10 Modifications
+
+#Compatibility Patches
+#--BadMatch fix for HW Palette issue (non-nvidia cards)
+nvidia_fix | WR | 0xA0A4C | 0x280A
+#--Fix for flash drive detection for kernels without USBFS
+usbfs_fix1 | STR | 0xCCBA4 | '/sys/bus/usb/devices/%d-%d:1.0/host*/target*:0:0/*:0:0:0/block/sd*'
+
+#Dongle Patches
+#--Dongle Check 1 (Test vector at startup)
+dongle_check_1_1 | NOP | 0x11EA7 | 0x5
+dongle_check_1_2 | WR | 0x11EAF | 0x85
+#--Dongle Check 2 (Operator Menu Test Vectors)
+dongle_check_2 | WR | 0x8A425 | 0x74
+#--Skip settings file lock check
+lock_check_settings | NOP | 0x22443 | 0x2
+#--IOSLEEP Trap Fix (Infinite loop waiting for dongle to return value)
+iosleep_trap_fix | NOP | 0x40BF3 | 0x2
+#--Get Lock Number Fix
+lock_num_fix | NOP | 0x40C98 | 0x2
+
+#Cosmetic Patches
+#--Change window Title to 'Hack it Up'
+window_title | STR | 0xCBACA | 'HACK IT UP: NXA'
+
+#HDD Check Patches
+#--Pre Title HDD Check Fix
+hdd_fix_1 | NOP | 0x93385 | 0x24
+#--Post Mission HDD Check Fix
+hdd_fix_2 | NOP | 0x686A1 | 0x27
+
+#Path Patches
+#--Machine Settings Path Mod
+savefix_1 | STR | 0xCBEB4 | '/SAVE/NXA/MRANK.DAT'
+savefix_2 | STR | 0xCC69D | '/SAVE/NXA/RANK.DAT'
+savefix_3 | STR | 0xCC9F4 | '/SAVE/NXA/PIUNXA.INI'
+#--Mission and UFO Path Mod
+missfix_1 | STR | 0xD18A2 | 'mission.txt'
+missfix_2 | STR | 0xD18AF | 'ufo.txt'
+
+#USB Profile Patches
+#--Enable use of any flash drive
+anyusb_1 | NOP | 0x2593E | 0x16
+anyusb_2 | NOP | 0x26915 | 0x1A
+anyusb_3 | NOP | 0x266D5 | 0x1A
+anyusb_4 | NOP | 0x26C75 | 0x6
+anyusb_5 | NOP | 0x264BE | 0x6
+
+#CONFIG Patches
+config_patch1 | STR | 0xE862A | 'KR'
+config_patch2 | STR | 0xE862D | 'EN'
+config_patch3 | STR | 0xE8630 | 'SP'
+config_patch4 | STR | 0xE8633 | 'PT'
+config_patch5 | STR | 0xE8636 | 'CN'
+config_patch6 | STR | 0xD5755 | 'TITLE'
+config_patch7 | STR | 0xD53B8 | 'STATION'
+config_patch8 | STR | 0xD4BE0 | 'CONFIG/SETUP.TXT'
+config_patch9 | STR | 0xD4B29 | 'CONFIG/LANG/%s/SETUP.TXT'
+config_patch10 | STR | 0xD35CE | 'WORLDMAX'
+config_patch11 | STR | 0xD2FCD | 'TRAINING'
+config_patch12 | STR | 0xD1F83 | 'NAMEINPUT'
+config_patch13 | STR | 0xD1E23 | 'NEXTSTAGE'
+config_patch14 | STR | 0xCFEBA | 'SELECT'
+config_patch15 | STR | 0xCB89F | 'CONFIG/SFX/%s.TXT'
+config_patch16 | STR | 0xCB8B1 | 'GLOBAL'

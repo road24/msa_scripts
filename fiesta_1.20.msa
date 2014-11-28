@@ -1,0 +1,45 @@
+#Pump it Up Fiesta 1.20 Modifications
+
+#HDD Check Patches
+hdd_check_1 | WR | 0xD930 | 0xC3
+hdd_check_2 | WR | 0x13B17 | 0xC3
+hdd_check_3 | WR | 0x7FD58 | 0xC3
+hdd_check_4 | WR | 0x8A360 | 0xC3
+
+
+
+
+#Region Patches (PIUFESTA.INI must be deleted first)
+#region_KR | WR | 0x1E30D8C | 0x1
+#region_SP | WR | 0x1E30D8C | 0x2
+#region_PT | WR | 0x1E30D8C | 0x3
+#region_CN | WR | 0x1E30D8C | 0x4
+
+
+#Dongle Patches
+#--Eliminate XOR Encryption with File Key
+encrypt_patch_1 | NOP | 0x212EA | 0x2
+#--Skip settings file lock check
+settings_patch | NOP | 0x23C3D | 0x6 
+#--DogConvert() Patch
+dogcvrt_fix_1 | WR | 0x9C57E | 0xC3C9C031
+dogcvrt_fix_2 | WR | 0x9C582 | 0x90
+#--Get DogID() Fix
+get_dog_idfix_1 | WR | 0x9C5A5 | 0xC990C031
+get_dog_idfix_2 | WR | 0x9CD74 | 0xC990C031
+
+#--Dongle Check 1 (Test vector at startup)
+dog_check1 | NOP | 0x1300A | 0x2
+#--Dongle Check 2 (Operator Menu Test Vectors)
+dog_check2 | NOP | 0x84830 | 0x2
+dcretnull | WR | 0x9C58A | 0x74
+get_lock | NOP | 0x37D17 | 0x2
+iosleep_trap | NOP | 0x21269 | 0x2
+
+#Cosmetic Patches
+#--Alter Window Title
+window_fix1 | STR | 0xDD2C0 | 'HIU : Fiesta'
+
+#Path Patches
+save_fix1 | STR | 0xDDAA0 | '/SAVE/FSA/RANK.DAT'
+save_fix2 | STR | 0xDDDEC | '/SAVE/FSA/PIUFESTA.INI'
